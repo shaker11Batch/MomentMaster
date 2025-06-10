@@ -1,11 +1,13 @@
 import Lottie from 'lottie-react';
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import loginAnimation from '../assets/login.json'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { logInUser } = use(AuthContext)
+    const navigate = useNavigate()
     const handleLoginUser = e => {
         e.preventDefault()
         const email = e.target.email.value;
@@ -14,9 +16,11 @@ const Login = () => {
         .then(res => {
             const user = res.user;
             console.log(user)
+            navigate('/')
         })
         .catch(error => {
             console.log(error)
+            setError(error)
         })
     }
 
@@ -39,6 +43,11 @@ const Login = () => {
                             <button className="btn btn-neutral mt-4">Login</button>
                         </form>
                         <p>If you New here <Link className='font-semibold text-blue-500 underline' to='/signUp'>Please SignUp</Link></p>
+                        <p>
+                            {
+                                error&& <p className='text-red-600 font-semibold'>{error.message}</p>
+                            }
+                        </p>
                     </div>
                 </div>
             </div>
