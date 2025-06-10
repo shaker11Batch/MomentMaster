@@ -45,6 +45,8 @@ console.log(user)
                 </ul>
             </div>
             <div className="navbar-end">
+            <input  type="checkbox" value='dark' className="toggle theme-controller mr-5" />
+         
                 <Link to='/logIn'>
                     <button>LogIn</button>
                 </Link>
