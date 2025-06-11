@@ -4,8 +4,16 @@ import { AuthContext } from '../Context/AuthContext';
 
 
 const Navbar = () => {
-    const { user } = use(AuthContext)
-    console.log(user)
+    const { user, logOut } = use(AuthContext)
+    // console.log(user)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                console.log('sign out user')
+            }).catch(error => console.log(error))
+    }
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -17,6 +25,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/upComingEvents'>Upcoming Events</NavLink></li>
                         <li>
                             <a>Parent</a>
                             <ul className="p-2">
@@ -27,21 +36,24 @@ const Navbar = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl">EventManagement</Link>
+                <Link to='/' className=" text-3xl font-bold">Smart <span className='text-secondary'>CollegeEvent</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='/upComingEvents'>Upcoming Events</NavLink></li>
                     <li>
-                        <details>
-                            <summary>Parent</summary>
+                        <details className='z-10'>
+                            <summary>DashBoard</summary>
                             <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
+                                <li><NavLink to='/createEvents'>Create Events</NavLink></li>
+                                <li><NavLink to=''>Manage Events</NavLink></li>
+                                <li><NavLink to=''>Joined Events</NavLink></li>
+
                             </ul>
                         </details>
                     </li>
-                    <li><a>Item 3</a></li>
+
                 </ul>
             </div>
             <div className="navbar-end">
@@ -49,16 +61,25 @@ const Navbar = () => {
                 {
                     user && <div className=''>
                         {
-                             user.photoURL && (
+                            user.photoURL && (
                                 <img src={user.photoURL} referrerPolicy='no-referrer' alt="" className='w-12 h-12 rounded-full mr-2 ' />
                             )
-                         
+
                         }
                     </div>
                 }
-                <Link to='/logIn'>
-                    <button>LogIn</button>
-                </Link>
+                {
+                    user
+                        ?
+                        <Link to='/logIn'>
+                            <button onClick={handleSignOut}>SignOut</button>
+                        </Link>
+
+                        :
+                        
+                            <button>LogIn</button>
+                      
+                }
             </div>
         </div>
     );

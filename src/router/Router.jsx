@@ -3,6 +3,10 @@ import MainLayOut from "../MainLayOut/MainLayOut";
 import Home from "../pages/Home/Home";
 import Login from "../Login/Login";
 import SignUp from "../Login/SignUp";
+import CreateEvents from "../pages/CreateEvents/CreateEvents";
+import UpComingEvents from "../pages/UpComingEnvents/UpComingEvents";
+import axios from "axios";
+import UpcomingEventDetails from "../pages/UpComingEnvents/UpcomingEventDetails";
 
 export const router = createBrowserRouter([
     {
@@ -14,8 +18,18 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path: '/about',
-                element: <p>this is the testing about page</p>
+                path: '/createEvents',
+                element: <CreateEvents />
+            },
+            {
+                path: '/upComingEvents',
+                loader: () => axios.get('http://localhost:3000/events'),
+                element: <UpComingEvents />
+            },
+            {
+                path: '/upComingEvents/:id',
+                loader: ({ params }) => axios.get(`http://localhost:3000/upcomingEvent/${params.id}`),
+                element: <UpcomingEventDetails />
             },
             {
                 path: '/logIn',
@@ -24,7 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: '/signUp',
                 Component: SignUp
-            }
+            },
 
         ]
     }
