@@ -4,8 +4,8 @@ import { AuthContext } from '../Context/AuthContext';
 
 
 const Navbar = () => {
-const {user} = use(AuthContext)
-console.log(user)
+    const { user } = use(AuthContext)
+    console.log(user)
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -45,8 +45,17 @@ console.log(user)
                 </ul>
             </div>
             <div className="navbar-end">
-            <input  type="checkbox" value='dark' className="toggle theme-controller mr-5" />
-         
+                <input type="checkbox" value='dark' className="toggle theme-controller mr-5" />
+                {
+                    user && <div className=''>
+                        {
+                             user.photoURL && (
+                                <img src={user.photoURL} referrerPolicy='no-referrer' alt="" className='w-12 h-12 rounded-full mr-2 ' />
+                            )
+                         
+                        }
+                    </div>
+                }
                 <Link to='/logIn'>
                     <button>LogIn</button>
                 </Link>
