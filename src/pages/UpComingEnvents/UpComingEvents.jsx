@@ -8,7 +8,7 @@ const UpComingEvents = () => {
     return (
         <div>
             <h2>Upcoming Events is here</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 px-8'>
                 {
                     events?.data?.map(event => <UpCommingEvent
                         key={event._id}

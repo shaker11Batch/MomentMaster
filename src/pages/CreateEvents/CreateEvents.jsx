@@ -2,18 +2,30 @@ import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../../Context/AuthContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 
 const CreateEvents = () => {
     const { user } = useContext(AuthContext)
     const [selectedDate, setSelectedDate] = useState(new Date())
-
+const navigate = useNavigate()
     const handleCreateEvent = e => {
         e.preventDefault()
         const form = e.target;
         const formData = new FormData(form)
         const data = Object.fromEntries(formData.entries())
         console.log(data)
+
+        axios.post('http://localhost:3000/events', data)
+            .then(res => {
+                console.log(res.data)
+                toast("Wow you successfully create event!")
+                navigate('/upComingEvents')
+            }).catch(err => {
+                console.log(err)
+            })
     }
 
 

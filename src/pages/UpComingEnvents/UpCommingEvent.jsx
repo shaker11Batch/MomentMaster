@@ -5,7 +5,7 @@ const UpCommingEvent = ({ event }) => {
     // console.log(event)
     const { thumbnail, title, description, _id, eventType, location, eventDate, organizerEmail } = event;
     return (
-        <div className="card bg-base-100 w-96 shadow-sm">
+        <div className="card bg-base-100  shadow-sm">
             <figure>
                 <img
                     src={thumbnail}

@@ -47,7 +47,7 @@ const Navbar = () => {
                             <summary>DashBoard</summary>
                             <ul className="p-2">
                                 <li><NavLink to='/createEvents'>Create Events</NavLink></li>
-                                <li><NavLink to=''>Manage Events</NavLink></li>
+                                <li><NavLink to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
                                 <li><NavLink to=''>Joined Events</NavLink></li>
 
                             </ul>
@@ -76,9 +76,9 @@ const Navbar = () => {
                         </Link>
 
                         :
-                        
-                            <button>LogIn</button>
-                      
+
+                        <button>LogIn</button>
+
                 }
             </div>
         </div>

@@ -7,6 +7,7 @@ import CreateEvents from "../pages/CreateEvents/CreateEvents";
 import UpComingEvents from "../pages/UpComingEnvents/UpComingEvents";
 import axios from "axios";
 import UpcomingEventDetails from "../pages/UpComingEnvents/UpcomingEventDetails";
+import ManageEvents from "../pages/ManageEvents/ManageEvents";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
                 path: '/upComingEvents/:id',
                 loader: ({ params }) => axios.get(`http://localhost:3000/upcomingEvent/${params.id}`),
                 element: <UpcomingEventDetails />
+            },
+            {
+                path: '/myEvents/:email',
+                loader: ({ params }) => axios.get(`http://localhost:3000/myEvents/${params?.email}`),
+                element: <ManageEvents />
             },
             {
                 path: '/logIn',
