@@ -8,6 +8,7 @@ import UpComingEvents from "../pages/UpComingEnvents/UpComingEvents";
 import axios from "axios";
 import UpcomingEventDetails from "../pages/UpComingEnvents/UpcomingEventDetails";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
+import Update from "../pages/Update/Update";
 
 export const router = createBrowserRouter([
     {
@@ -23,8 +24,13 @@ export const router = createBrowserRouter([
                 element: <CreateEvents />
             },
             {
+                path: '/update/:id',
+                loader: ({ params }) => axios.get(`http://localhost:3000/update/${params.id}`),
+                element: <Update />
+            },
+            {
                 path: '/upComingEvents',
-                loader: () => axios.get('http://localhost:3000/events'),
+                loader: () => axios.get('http://localhost:3000/upComingEvents'),
                 element: <UpComingEvents />
             },
             {

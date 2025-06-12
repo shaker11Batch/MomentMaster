@@ -4,7 +4,7 @@ import UpCommingEvent from './UpCommingEvent';
 
 const UpComingEvents = () => {
     const events = useLoaderData()
-   
+    console.log(events)
     return (
         <div>
             <h2>Upcoming Events is here</h2>
