@@ -10,12 +10,14 @@ import { useNavigate } from 'react-router';
 const CreateEvents = () => {
     const { user } = useContext(AuthContext)
     const [selectedDate, setSelectedDate] = useState(new Date())
-const navigate = useNavigate()
+    const navigate = useNavigate()
     const handleCreateEvent = e => {
         e.preventDefault()
         const form = e.target;
         const formData = new FormData(form)
+        formData.joinedEvent = false;
         const data = Object.fromEntries(formData.entries())
+        data.joinedEvent = false;
         console.log(data)
 
         axios.post('http://localhost:3000/events', data)
