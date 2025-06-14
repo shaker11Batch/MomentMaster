@@ -3,10 +3,13 @@ import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { CiLocationOn } from 'react-icons/ci';
+import { IoMdTimer } from "react-icons/io";
+import { BiSolidCategoryAlt } from "react-icons/bi";
 
 const UpcomingEventDetails = () => {
     const { user } = use(AuthContext)
-   
+
     const details = useLoaderData()
     const { thumbnail, title, description, _id, eventType, location, eventDate } = details?.data;
 
@@ -41,21 +44,24 @@ const UpcomingEventDetails = () => {
 
 
     return (
-        <div className="card flex-row card-side bg-base-100 shadow-sm px-8 md: my-12">
-            <figure className='w-2/4'>
-                <img
-                    src={thumbnail}
-                    alt="" />
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">{title}</h2>
-                <p>{description}</p>
-                <p>{eventType}</p>
-                <p>{eventDate}</p>
-                <p>{location}</p>
-                <div className="card-actions ">
-                    <button onClick={ handleJoinedEvents }  className="btn btn-primary">Joined Event</button>
+        <div className='flex flex-col md:flex-row my-16 px-4 md:px-40 gap-16 w-full mx-auto items-center'>
+            <div className=''>
+                <img src={thumbnail} alt="" className='md:max-w-sm w-[300px] rounded-4xl' />
+            </div>
+            <div className='md:max-w-1/2'>
+                <h3 className="text-4xl font-bold">{title}</h3>
+                <p className="">
+                    {description}
+                </p>
+                <p className="my-2">
+                    {description}
+                </p>
+                <div className='flex gap-16'>
+                    <p className=' flex items-center gap-4 my-4 '><span className='gap-4'><CiLocationOn size={24} /></span>{location}</p>
+                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} /></span>{eventDate}</p>
                 </div>
+                <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} /></span>{eventType}</p>
+                <button className="btn btn-outline btn-success w-full" onClick={handleJoinedEvents}>Join Event</button>
             </div>
         </div>
     );
