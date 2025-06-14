@@ -27,13 +27,16 @@ const Navbar = () => {
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/upComingEvents'>Upcoming Events</NavLink></li>
                         <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
+                            <details className='z-10'>
+                                <summary>DashBoard</summary>
+                                <ul className="p-2">
+                                    <li><NavLink to='/createEvents'>Create Events</NavLink></li>
+                                    <li><NavLink to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
+                                    <li><NavLink to=''>Joined Events</NavLink></li>
+
+                                </ul>
+                            </details>
                         </li>
-                        <li><a>Item 3</a></li>
                     </ul>
                 </div>
                 <Link to='/' className=" text-3xl font-bold">Smart <span className='text-secondary'>CollegeEvent</span></Link>
@@ -56,7 +59,7 @@ const Navbar = () => {
 
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end hidden lg:flex">
                 <input type="checkbox" value='dark' className="toggle theme-controller mr-5" />
                 {
                     user && <div className=''>

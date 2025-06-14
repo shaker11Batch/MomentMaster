@@ -6,13 +6,13 @@ import NewsLatter from '../NewsLatter/NewsLatter';
 const Home = () => {
     return (
         <div className=' min-h-screen'>
-            <Banner />
-            <h3 className="text-center text-4xl my-4 font-bold">Feature section</h3>
+            {/* <Banner /> */}
+            {/* <h3 className="text-center text-4xl my-4 font-bold">Feature section</h3> */}
             <Futures/>
-            <h3 className="text-center text-4xl my-4 font-bold">Gallery Section</h3>
+            {/* <h3 className="text-center text-4xl my-4 font-bold">Gallery Section</h3> */}
             
-            <NewsLatter/>
-            <h3 className="text-center text-4xl my-4 font-bold"></h3>
+            {/* <NewsLatter/> */}
+  
         </div>
     );
 };

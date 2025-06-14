@@ -6,12 +6,12 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const Update = () => {
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     const data = useLoaderData();
     console.log(data)
     const { user } = useContext(AuthContext)
     const [selectedDate, setSelectedDate] = useState(new Date())
-    const { thumbnail, title, description, _id, eventType,organizerEmail, location, eventDate } = data?.data;
+    const { thumbnail, title, description, _id, eventType, organizerEmail, location, eventDate } = data?.data;
     console.log(_id)
 
     const handleUpdate = e => {
@@ -41,40 +41,41 @@ const Update = () => {
 
 
     return (
-        <div className=''>
-            <form onSubmit={handleUpdate} className=' my-4 '>
-                <fieldset className="">
-                    <legend className="fieldset-legend">Event title</legend>
-                    <input type="text" name='title' defaultValue={title} className="input " placeholder="Event title" />
+        <div>
+            <h3 className="text-4xl font-bold text-center my-8">Update Event</h3>
+            <form
+                onSubmit={handleUpdate}
+                className="pl-4 pr-4 md:pl-0 md:pr-0 grid grid-cols-1 md:grid-cols-2 gap-6 ">
+
+                <div>
+                    <legend className=" ">Event Title</legend>
+                    <input type="text" className=" input w-full  " defaultValue={title} name='title' placeholder="My awesome page" />
+                </div>
+                <div>
+                    <legend className=" ">Event photo</legend>
+                    <input type="text" name='thumbnail' defaultValue={thumbnail} className=" input w-full " placeholder="My awesome page" />
+                </div>
+                <div>
+                    <legend className=" ">Event Location</legend>
+                    <input type="text" name='location'
+                        defaultValue={location} className=" input w-full " placeholder="My awesome page" />
+                </div>
+                <fieldset className="fieldset ">
+                    <legend className=" ">Event Description</legend>
+                    <input name='description' defaultValue={description} className=" input w-full  " placeholder="Description"></input>
 
                 </fieldset>
-                <fieldset className="">
-                    <legend className="fieldset-legend">Photo URL</legend>
-                    <input type="text" name='thumbnail' defaultValue={thumbnail} className="input  " placeholder="Photo URL" />
-
-                </fieldset>
-                <fieldset className="fieldset">
-                    <legend className="fieldset-legend">Location </legend>
-                    <input type="text" name='location' className="input" defaultValue={location} placeholder="Location" />
-
-                </fieldset>
-
-                <fieldset className="fieldset">
-                    <legend className="fieldset-legend">Your Description</legend>
-                    <textarea name='description' className="textarea h-24" defaultValue={description} placeholder="Description"></textarea>
-
-                </fieldset>
-                <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-4">
-                    <legend className="fieldset-legend">Event Type</legend>
-                    <select defaultValue={eventType} name='eventType' className="select">
+                <div className="">
+                    <legend className=" ">Event Type</legend>
+                    <select defaultValue={eventType} name='eventType' className="select ">
                         <option disabled={true}>Event Type</option>
                         <option>Engineering</option>
                         <option>Marketing</option>
                         <option>Finance</option>
                     </select>
-                </fieldset>
-                <div className='border w-3/12 my-2'>
-                    <p>Date</p>
+                </div>
+                <div className=''>
+                    <legend className=" ">Event Date</legend>
                     <DatePicker
                         selected={selectedDate}
                         name='eventDate'
@@ -82,15 +83,18 @@ const Update = () => {
                         onChange={data => setSelectedDate(data)}
                         dateFormat='dd/MM/yyyy'
                         minDate={new Date()}
+                        style={{ width: "500px" }}
                     />
+                </div>
+
+                <div className=" ">
+                    <legend className=" ">HR_email </legend>
+                    <input type="text" name='organizerEmail' defaultValue={user?.email} readOnly className=" input w-full  " placeholder="organizerEmail" />
 
                 </div>
-                <fieldset className="fieldset">
-                    <legend className="fieldset-legend">HR_email </legend>
-                    <input type="text" name='organizerEmail' defaultValue={user?.email} className="input " placeholder="organizerEmail" />
+                <br />
+                <input type="submit" className='btn btn-primary w-full' value="Create Event" />
 
-                </fieldset>
-                <input className='btn btn-secondary' type="submit" value="Create Event" />
             </form>
         </div>
     );

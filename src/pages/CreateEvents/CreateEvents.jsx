@@ -32,55 +32,60 @@ const CreateEvents = () => {
 
 
     return (
-        <div className=''>
-            <form onSubmit={handleCreateEvent} className=' my-4 '>
-                <fieldset className="">
-                    <legend className="fieldset-legend">Event title</legend>
-                    <input type="text" name='title' className="input " placeholder="Event title" />
 
-                </fieldset>
-                <fieldset className="">
-                    <legend className="fieldset-legend">Photo URL</legend>
-                    <input type="text" name='thumbnail' className="input  " placeholder="Photo URL" />
+        <div>
+            <h3 className="text-4xl font-bold">Create Event</h3>
+            <form
+                onSubmit={handleCreateEvent}
+                className="pl-4 pr-4 md:pl-0 md:pr-0 grid grid-cols-1 md:grid-cols-2 gap-6 md:col-span-2">
 
-                </fieldset>
+                <div>
+                    <legend className=" ">Event Title</legend>
+                    <input type="text" className=" input w-full   " name='title' placeholder="My awesome page" />
+                </div>
+                <div>
+                    <legend className=" ">Event photo</legend>
+                    <input type="text" name='thumbnail' className=" input w-full  " placeholder="My awesome page" />
+                </div>
+                <div>
+                    <legend className=" ">Event Location</legend>
+                    <input type="text" name='location' className=" input w-full  " placeholder="My awesome page" />
+                </div>
                 <fieldset className="fieldset">
-                    <legend className="fieldset-legend">Location </legend>
-                    <input type="text" name='location' className="input  " placeholder="Location" />
+                    <legend className=" ">HR_email </legend>
+                    <input type="text" name='organizerEmail' defaultValue={user?.email} readOnly className=" input w-full   " placeholder="organizerEmail" />
 
                 </fieldset>
-
-                <fieldset className="fieldset">
-                    <legend className="fieldset-legend">Your Description</legend>
-                    <textarea name='description' className="textarea h-24" placeholder="Description"></textarea>
-
-                </fieldset>
-                <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-4">
-                    <legend className="fieldset-legend">Event Type</legend>
-                    <select defaultValue="Job Category" name='eventType' className="select">
+              
+                <div className="">
+                    <legend className=" ">Event Type</legend>
+                    <select defaultValue="Job Category" name='eventType' className="select ">
                         <option disabled={true}>Event Type</option>
                         <option>Engineering</option>
                         <option>Marketing</option>
                         <option>Finance</option>
                     </select>
-                </fieldset>
-                <div className='border w-3/12 my-2'>
-                    <p>Date</p>
+                </div>
+                <div className=''>
+                    <legend className=" ">Event Date</legend>
                     <DatePicker
                         selected={selectedDate}
                         name='eventDate'
                         onChange={data => setSelectedDate(data)}
                         dateFormat='dd/MM/yyyy'
                         minDate={new Date()}
+                        style={{ width: "500px" }}
                     />
-
                 </div>
-                <fieldset className="fieldset">
-                    <legend className="fieldset-legend">HR_email </legend>
-                    <input type="text" name='organizerEmail' defaultValue={user?.email} readOnly className="input " placeholder="organizerEmail" />
+                <fieldset className="fieldset col-span-2 ">
+                    <legend className=" ">Event Description</legend>
+                    <textarea name='description' className=" textarea w-full " placeholder="Description"></textarea>
 
                 </fieldset>
-                <input className='btn btn-secondary' type="submit" value="Create Event" />
+              
+
+                <input type="submit" className='btn btn-primary w-full col-span-2' value="Create Event" />
+
             </form>
         </div>
     );
