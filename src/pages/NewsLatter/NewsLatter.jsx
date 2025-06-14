@@ -1,18 +1,30 @@
 import React from 'react';
-
+import newsletter from '../../assets/newsletter.jpg'
 const NewsLatter = () => {
-    return (
-        <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-          
-          </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-           
-          </div>
+  return (
+    <div className='flex flex-col md:flex-row gap-16 my-12'>
+      <div className='flex-1'>
+        <img className='w-[350px] md:w-full mx-auto rounded-2xl' src={newsletter} alt="" />
+      </div>
+      <div className='flex-1 px-6'>
+        <h3 className="text-4xl font-bold mb-4">Newsletter</h3>
+        <p>Sign up to jordan Turner's newsletter and be the first to know about the latest news, special offers, and event.</p>
+
+        <div className='mt-4'>
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">Name</legend>
+            <input type="text" className="input" placeholder="Enter your name" />
+          </fieldset>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">Enter your G-Mail</legend>
+            <input type="text" className="input" placeholder="G-Mail" />
+          </fieldset>
+          <button className='btn my-2 bg-amber-300'>Subscribe</button>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default NewsLatter;
