@@ -2,17 +2,19 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import Futures from '../../futures/Futures';
 import NewsLatter from '../NewsLatter/NewsLatter';
+import ComingEvent from '../../components/Banner/ComingEvent/ComingEvent';
+import Services from '../Services/Services';
 
 const Home = () => {
     return (
         <div className=' min-h-screen'>
-            {/* <Banner /> */}
-            {/* <h3 className="text-center text-4xl my-4 font-bold">Feature section</h3> */}
-            <Futures/>
-            {/* <h3 className="text-center text-4xl my-4 font-bold">Gallery Section</h3> */}
-            
-            {/* <NewsLatter/> */}
-  
+            <Banner />
+            <Services />
+            <ComingEvent />
+           
+            <Futures />
+            <NewsLatter />
+
         </div>
     );
 };

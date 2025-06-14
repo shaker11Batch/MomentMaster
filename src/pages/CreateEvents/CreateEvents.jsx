@@ -34,7 +34,7 @@ const CreateEvents = () => {
     return (
 
         <div>
-            <h3 className="text-4xl font-bold">Create Event</h3>
+            <h3 className="text-4xl font-bold text-center my-8">Create Event</h3>
             <form
                 onSubmit={handleCreateEvent}
                 className="pl-4 pr-4 md:pl-0 md:pr-0 grid grid-cols-1 md:grid-cols-2 gap-6 md:col-span-2">

@@ -1,8 +1,17 @@
 import React from 'react';
 import newsletter from '../../assets/newsletter.jpg'
+import {motion} from 'framer-motion'
+import { fadeIn } from '../../variants';
+
 const NewsLatter = () => {
   return (
-    <div className='flex flex-col md:flex-row gap-16 my-12'>
+    <motion.div
+    variants={fadeIn("up",0.2)}
+    initial="hidden"
+    whileInView={"show"}
+viewport={{once:false, amount:0.7}}
+
+    className='flex flex-col md:flex-row gap-16 my-12'>
       <div className='flex-1'>
         <img className='w-[350px] md:w-full mx-auto rounded-2xl' src={newsletter} alt="" />
       </div>
@@ -23,7 +32,7 @@ const NewsLatter = () => {
           <button className='btn my-2 bg-amber-300'>Subscribe</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
