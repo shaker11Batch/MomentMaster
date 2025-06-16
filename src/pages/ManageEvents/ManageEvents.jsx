@@ -9,10 +9,10 @@ const ManageEvents = () => {
     // const myAddedEvents = useLoaderData()
     const { user } = useContext(AuthContext)
     
-    console.log(user?.accessToken)
+    // console.log(user?.accessToken)
     const [myEvents, setMyEvents] = useState([])
     console.log(myEvents)
-    const axiosSecure = useAxios()
+   
     useEffect(() => {
         const token = user?.accessToken
         axios(`http://localhost:3000/myEvent/${user?.email}`, {

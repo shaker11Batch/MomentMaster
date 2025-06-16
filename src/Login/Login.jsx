@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react';
 import React, { use, useState } from 'react';
 import loginAnimation from '../assets/login.json'
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 import { auth } from '../firebase.init';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -11,7 +11,7 @@ const Login = () => {
     const [error, setError] = useState('')
     const { logInUser } = use(AuthContext)
     const navigate = useNavigate()
-
+const location = useLocation()
     const provider = new GoogleAuthProvider();
     const handleLoginUser = e => {
         e.preventDefault()
@@ -22,7 +22,7 @@ const Login = () => {
                 const user = res.user;
                 console.log(user)
                 toast('successfully login')
-                navigate('/')
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
                 console.log(error)
@@ -35,7 +35,7 @@ const Login = () => {
             .then(res => {
                 console.log(res)
                 toast('successfully login')
-                navigate('/')
+                navigate(`${location.state ? location.state : '/'}`)
              
             })
             .catch(err => {

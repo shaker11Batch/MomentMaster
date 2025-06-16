@@ -11,6 +11,8 @@ import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import Update from "../pages/Update/Update";
 import PrivateRoutes from "../auth/PrivateRoutes";
 
+
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -22,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/createEvents',
-                element: <CreateEvents />
+                element: <PrivateRoutes><CreateEvents /></PrivateRoutes>
             },
             {
                 path: '/update/:id',
@@ -42,7 +44,7 @@ export const router = createBrowserRouter([
             {
               
                 path: '/myEvents/:email',
-                element: <ManageEvents />
+                element: <PrivateRoutes><ManageEvents /></PrivateRoutes>
             },
             {
                 path: '/logIn',
