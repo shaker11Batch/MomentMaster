@@ -10,6 +10,7 @@ import UpcomingEventDetails from "../pages/UpComingEnvents/UpcomingEventDetails"
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import Update from "../pages/Update/Update";
 import PrivateRoutes from "../auth/PrivateRoutes";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         Component: MainLayOut,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,

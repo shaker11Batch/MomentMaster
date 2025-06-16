@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Banner = () => {
+
+
     return (
         <div
             className="hero md:min-h-screen"
@@ -20,6 +22,7 @@ const Banner = () => {
                     <button className="btn btn-primary">Get Started</button>
                 </div>
             </div>
+
         </div>
     );
 };
