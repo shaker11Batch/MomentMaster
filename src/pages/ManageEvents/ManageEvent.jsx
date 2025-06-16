@@ -4,6 +4,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { IoMdTimer } from 'react-icons/io';
+import { CiLocationOn } from 'react-icons/ci';
+import { BiSolidCategoryAlt } from 'react-icons/bi';
 
 const ManageEvent = ({ event, myEvents, setMyEvents }) => {
 
@@ -51,11 +54,15 @@ const ManageEvent = ({ event, myEvents, setMyEvents }) => {
             <div className="card-body">
                 <h2 className="card-title">
                     {title}
-                    <div className="badge badge-secondary">{eventType}</div>
                 </h2>
-                <p>{description}</p>
-                <p>{location}</p>
-                <p>{eventDate}</p>
+                <div className="">
+                    {description}
+                </div>
+                <div className='flex flex-col md:flex-row md:gap-16'>
+                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} /></span>{location}</p>
+                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} /></span>{eventDate}</p>
+                </div>
+                <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} /></span>{eventType}</p>
                 <div className="card-actions justify-end">
                     <Link to={``}>
                         <button className="badge badge-outline">View</button>

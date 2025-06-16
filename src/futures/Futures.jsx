@@ -6,9 +6,10 @@ const Futures = () => {
     const [futures, setFutures] = useState([])
 
     useEffect(() => {
+      
         axios.get('http://localhost:3000/futures')
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setFutures(res?.data)
             })
     }, [])

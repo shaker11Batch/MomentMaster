@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 loader: ({ params }) => axios.get(`http://localhost:3000/update/${params.id}`),
-                element: <PrivateRoutes><Update/></PrivateRoutes>
+                element: <PrivateRoutes><Update /></PrivateRoutes>
             },
             {
                 path: '/upComingEvents',
@@ -40,8 +40,8 @@ export const router = createBrowserRouter([
                 element: <UpcomingEventDetails />
             },
             {
+              
                 path: '/myEvents/:email',
-                loader: ({ params }) => axios.get(`http://localhost:3000/myEvents/${params?.email}`),
                 element: <ManageEvents />
             },
             {
