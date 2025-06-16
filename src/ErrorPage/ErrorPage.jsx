@@ -7,7 +7,7 @@ const ErrorPage = () => {
          <div>
          <img className='w-[500px]' src={error} alt="" />
          <Link className='flex justify-center' to='/'>
-         <button className="btn btn-dash btn-success my-16 ">GO TO DESHBOARD</button>
+         <button className="btn btn-dash btn-success my-16 ">GO TO DASHBOARD</button>
          </Link>
          </div>
         </div>
