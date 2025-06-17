@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/joined',
-                element: <UserJoined/>
+                element: <PrivateRoutes><UserJoined/></PrivateRoutes>
             },
             {
                 path: '/logIn',

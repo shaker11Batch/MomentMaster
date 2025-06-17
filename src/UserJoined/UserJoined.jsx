@@ -26,22 +26,18 @@ const UserJoined = () => {
                 {/* head */}
                 <thead>
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
+                       <th className='hidden md:block'>SL</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Location</th>
-                        <th>Date</th>
+                        <th className='hidden md:block'>Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {/* row 1 */}
                     {
                         userJoin.map((join, index) => <tr>
-                            <th>
+                            <th className='hidden md:block'>
                                 <label>
                                     {index+1}
                                 </label>
@@ -67,7 +63,7 @@ const UserJoined = () => {
                               
                             </td>
                             <td>{join?.location}</td>
-                            <th>
+                            <th className='hidden md:block'>
                                
                                <button className="btn btn-ghost btn-xs">{join?.eventDate}</button>
                                

@@ -8,7 +8,7 @@ const Futures = () => {
     const [futures, setFutures] = useState([])
 
     useEffect(() => {
-      
+
         axios.get('http://localhost:3000/futures')
             .then(res => {
                 // console.log(res.data)
@@ -16,15 +16,19 @@ const Futures = () => {
             })
     }, [])
     return (
-        <div
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8'>
-            {
-                futures.map(future => <Future
-                    key={future._id}
-                    future={future}
-                ></Future>)
-            }
-        </div>
+        <>
+            <h3 className="text-5xl font-bold text-center text-blue-500 my-16">Event Gallery</h3>
+
+            <div
+                className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8'>
+                {
+                    futures.map(future => <Future
+                        key={future._id}
+                        future={future}
+                    ></Future>)
+                }
+            </div>
+        </>
     );
 };
 
