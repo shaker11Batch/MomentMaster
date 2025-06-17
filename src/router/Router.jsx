@@ -11,6 +11,7 @@ import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import Update from "../pages/Update/Update";
 import PrivateRoutes from "../auth/PrivateRoutes";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import UserJoined from "../UserJoined/UserJoined";
 
 
 
@@ -50,7 +51,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/joined',
-                element: <p> this is ur joined events</p>
+                element: <UserJoined/>
             },
             {
                 path: '/logIn',

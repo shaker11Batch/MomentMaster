@@ -20,7 +20,15 @@ const UpcomingEventDetails = () => {
         const joinInfo = {
             organizerEmail: user?.email,
             joinedId: _id,
-            joinedEvent: true
+            joinedEvent: true,
+            title:title,
+            description:description,
+            thumbnail:thumbnail,
+            eventType:eventType,
+            eventDate:eventDate,
+            location:location
+
+
 
         }
         console.log(joinInfo)
