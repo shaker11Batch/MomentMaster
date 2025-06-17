@@ -52,24 +52,24 @@ const ManageEvent = ({ event, myEvents, setMyEvents }) => {
                     alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
+                <h2 className="card-title text-blue-500">
                     {title}
                 </h2>
                 <div className="">
                     {description}
                 </div>
                 <div className='flex flex-col md:flex-row md:gap-16'>
-                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} /></span>{location}</p>
-                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} /></span>{eventDate}</p>
+                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} fill='blue' /></span>{location}</p>
+                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} fill='blue' /></span>{eventDate}</p>
                 </div>
-                <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} /></span>{eventType}</p>
+                <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} fill='blue' /></span>{eventType}</p>
                 <div className="card-actions justify-end">
                     
                     <Link to={`/update/${_id}`}>
-                        <button className=""><Pencil fill='blue' /></button>
+                        <button className="btn btn-outline rounded-full"><Pencil fill='blue' /></button>
                     </Link>
 
-                    <button onClick={() => handleDelete(_id)} className=""><MdDeleteForever size={24} /></button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-outline rounded-full"><MdDeleteForever size={24} fill='red' /></button>
 
 
                 </div>

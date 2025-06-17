@@ -15,20 +15,22 @@ const UpCommingEvent = ({ event }) => {
                     alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
-                    {title}
-                    <div className="badge badge-secondary"><span className='gap-4'><BiSolidCategoryAlt size={24} /></span>{eventType}</div>
-                </h2>
+                <div className='flex flex-col md:flex-row gap-4'>
+                    <h2 className="font-bold text-xl text-blue-500">
+                        {title}
+                    </h2>
+                    <div className="btn btn-outline  btn-info"><span className='gap-4'><BiSolidCategoryAlt size={24} /></span><span className=''>{eventType}</span></div>
+                </div>
                 <p>{description}</p>
                 <div className='flex flex-col md:flex-row md:gap-16'>
-                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} /></span>{location}</p>
-                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} /></span>{eventDate}</p>
+                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} fill='blue'/></span>{location}</p>
+                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} fill='blue' /></span>{eventDate}</p>
                 </div>
                 <div className="card-actions justify-end">
-                   <Link to={`/upComingEvents/${_id}`}>
-                   <btn className="badge badge-outline">View</btn>
-                   </Link>
-                   
+                    <Link to={`/upComingEvents/${_id}`}>
+                        <btn className="btn btn-outline btn-primary">View</btn>
+                    </Link>
+
                 </div>
             </div>
         </div>

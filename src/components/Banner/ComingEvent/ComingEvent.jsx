@@ -7,7 +7,7 @@ const ComingEvent = () => {
         <img src={filedClean} alt="" className='md:max-w-sm w-[300px] rounded-4xl' />
       </div>
       <div className='md:max-w-1/2'>
-        <h3 className="text-4xl font-bold">College cleaning</h3>
+        <h3 className="text-4xl font-bold text-blue-500">College cleaning</h3>
         <p className="py-6">
           Join our college road cleaning event to help keep our campus and surrounding areas clean and green. Promote awareness, teamwork, and community responsibility through active student participation.
         </p>

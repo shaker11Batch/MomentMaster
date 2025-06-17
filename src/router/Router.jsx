@@ -49,6 +49,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoutes><ManageEvents /></PrivateRoutes>
             },
             {
+                path: '/joined',
+                element: <p> this is ur joined events</p>
+            },
+            {
                 path: '/logIn',
                 Component: Login
             },

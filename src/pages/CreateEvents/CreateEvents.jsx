@@ -61,9 +61,14 @@ const CreateEvents = () => {
                     <legend className=" ">Event Type</legend>
                     <select defaultValue="Job Category" name='eventType' className="select ">
                         <option disabled={true}>Event Type</option>
-                        <option>Engineering</option>
-                        <option>Marketing</option>
-                        <option>Finance</option>
+                        <option>Talent Fusion Night</option>
+                        <option>College Colors Day</option>
+                        <option>Career Launchpad</option>
+                        <option>Blood for Life</option>
+                        <option>Clean & Care Campaign</option>
+                        <option>Tree for Tomorrow</option>
+                        <option>Inter-College Sports Fest</option>
+                        <option>Battle of Champions</option>
                     </select>
                 </div>
                 <div className=''>
