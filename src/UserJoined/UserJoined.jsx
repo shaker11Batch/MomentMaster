@@ -1,14 +1,19 @@
 import axios from 'axios';
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
-import JoinEvent from './JoinEvent';
-import { Link } from 'react-router';
+
 
 const UserJoined = () => {
     const { user } = use(AuthContext)
     const [userJoin, setUserJoined] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/myJoinedEvent/${user?.email}`)
+        const token = user?.accessToken
+        axios.get(`http://localhost:3000/myJoinedEvent/${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+            
+        })
             .then(res => {
                 console.log(res?.data)
                 setUserJoined(res?.data)
