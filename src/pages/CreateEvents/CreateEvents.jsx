@@ -20,7 +20,7 @@ const CreateEvents = () => {
         data.joinedEvent = false;
         console.log(data)
 
-        axios.post('http://localhost:3000/events', data)
+        axios.post('https://event-management-server-pied.vercel.app/events', data)
             .then(res => {
                 console.log(res.data)
                 toast("Wow you successfully create event!")

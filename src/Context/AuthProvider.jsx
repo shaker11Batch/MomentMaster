@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             // jwt Request when user login 
             if (currentUser?.email) {
-                axios.post('http://localhost:3000/jwt', {
+                axios.post('https://event-management-server-pied.vercel.app/jwt', {
                     email: currentUser?.email
                 })
                     .then(res => {

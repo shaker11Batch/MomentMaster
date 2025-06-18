@@ -32,17 +32,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                loader: ({ params }) => axios.get(`http://localhost:3000/update/${params.id}`),
+                loader: ({ params }) => axios.get(`https://event-management-server-pied.vercel.app/update/${params.id}`),
                 element: <PrivateRoutes><Update /></PrivateRoutes>
             },
             {
                 path: '/upComingEvents',
-                loader: () => axios.get('http://localhost:3000/upComingEvents'),
+                loader: () => axios.get('https://event-management-server-pied.vercel.app/upComingEvents'),
                 element: <UpComingEvents />
             },
             {
                 path: '/upComingEvents/:id',
-                loader: ({ params }) => axios.get(`http://localhost:3000/upcomingEvent/${params.id}`),
+                loader: ({ params }) => axios.get(`https://event-management-server-pied.vercel.app/upcomingEvent/${params.id}`),
                 element: <UpcomingEventDetails />
             },
             {

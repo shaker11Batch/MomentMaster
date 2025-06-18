@@ -9,7 +9,7 @@ const Futures = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3000/futures')
+        axios.get('https://event-management-server-pied.vercel.app/futures')
             .then(res => {
                 // console.log(res.data)
                 setFutures(res?.data)

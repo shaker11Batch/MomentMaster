@@ -22,7 +22,7 @@ const Update = () => {
         console.log(data)
 
 
-        axios.put(`http://localhost:3000/eventUpdate/${_id}`, data)
+        axios.put(`https://event-management-server-pied.vercel.app/eventUpdate/${_id}`, data)
             .then(res => {
                 console.log(res.data)
                 if (res?.data?.modifiedCount) {
