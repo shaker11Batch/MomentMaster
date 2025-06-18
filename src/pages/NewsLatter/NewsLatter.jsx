@@ -17,7 +17,7 @@ const NewsLatter = () => {
       </div>
       <div className='flex-1 px-6'>
         <h3 className="text-4xl font-bold mb-4">Newsletter</h3>
-        <p>Sign up to jordan Turner's newsletter and be the first to know about the latest news, special offers, and event.</p>
+        <p>Sign up to smart college event  newsletter and be the first to know about the latest news, special offers, and event.</p>
 
         <div className='mt-4'>
           <fieldset className="fieldset">

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { CiLocationOn } from 'react-icons/ci';
 import { IoMdTimer } from "react-icons/io";
 import { BiSolidCategoryAlt } from "react-icons/bi";
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const UpcomingEventDetails = () => {
     const { user } = use(AuthContext)
@@ -21,19 +22,19 @@ const UpcomingEventDetails = () => {
             organizerEmail: user?.email,
             joinedId: _id,
             joinedEvent: true,
-            title:title,
-            description:description,
-            thumbnail:thumbnail,
-            eventType:eventType,
-            eventDate:eventDate,
-            location:location
+            title: title,
+            description: description,
+            thumbnail: thumbnail,
+            eventType: eventType,
+            eventDate: eventDate,
+            location: location
 
 
 
         }
         console.log(joinInfo)
-
-        axios.post(`http://localhost:3000/joined-events/${_id}`, joinInfo)
+     const axiosSecure = useAxiosSecure()
+        axiosSecure.post(`/joined-events/${_id}`, joinInfo)
             .then(res => {
                 console.log(res)
                 if (res?.data?.acknowledged) {

@@ -36,10 +36,10 @@ const AuthProvider = ({ children }) => {
                     email: currentUser?.email
                 })
                     .then(res => {
-                        console.log(res.data.token)
+                        // console.log(res.data.token)
                         localStorage.setItem('token', res?.data?.token)
                     })
-            } else{
+            } else {
                 localStorage.removeItem('token')
             }
 

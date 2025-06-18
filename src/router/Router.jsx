@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+
             },
             {
                 path: '/createEvents',
@@ -45,13 +46,13 @@ export const router = createBrowserRouter([
                 element: <UpcomingEventDetails />
             },
             {
-              
+
                 path: '/myEvents/:email',
                 element: <PrivateRoutes><ManageEvents /></PrivateRoutes>
             },
             {
                 path: '/joined',
-                element: <PrivateRoutes><UserJoined/></PrivateRoutes>
+                element: <PrivateRoutes><UserJoined /></PrivateRoutes>
             },
             {
                 path: '/logIn',

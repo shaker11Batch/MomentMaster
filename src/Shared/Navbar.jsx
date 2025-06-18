@@ -24,15 +24,25 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/upComingEvents'>Upcoming Events</NavLink></li>
+                        <li className='font-bold'><NavLink className={({ isActive }) =>
+                            isActive ? "text-blue-700" : ""
+                        } to='/'>Home</NavLink></li>
+                        <li className='font-bold'><NavLink className={({ isActive }) =>
+                            isActive ? "text-blue-700" : ""
+                        } to='/upComingEvents'>Upcoming Events</NavLink></li>
                         <li>
                             <details className='z-10'>
-                                <summary>DashBoard</summary>
+                                <summary className='font-bold'>DashBoard</summary>
                                 <ul className="p-2">
-                                    <li><NavLink to='/createEvents'>Create Events</NavLink></li>
-                                    <li><NavLink to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
-                                    <li><NavLink to='/joined'>Joined Events</NavLink></li>
+                                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                                        isActive ? "text-blue-700" : ""
+                                    } to='/createEvents'>Create Events</NavLink></li>
+                                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                                        isActive ? "text-blue-700" : ""
+                                    } to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
+                                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                                        isActive ? "text-blue-700" : ""
+                                    } to='/joined'>Joined Events</NavLink></li>
 
                                 </ul>
                             </details>
@@ -43,15 +53,25 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/upComingEvents'>Upcoming Events</NavLink></li>
+                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                        isActive ? "text-blue-700" : ""
+                    } to='/'>Home</NavLink></li>
+                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                        isActive ? "text-blue-700" : ""
+                    } to='/upComingEvents'>Upcoming Events</NavLink></li>
                     <li>
                         <details className='z-10'>
-                            <summary>DashBoard</summary>
+                            <summary className='font-bold'>DashBoard</summary>
                             <ul className="p-2">
-                                <li><NavLink to='/createEvents'>Create Events</NavLink></li>
-                                <li><NavLink to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
-                                <li><NavLink to='/joined'>Joined Events</NavLink></li>
+                                <li className='font-bold'><NavLink className={({ isActive }) =>
+                                    isActive ? "text-blue-700" : ""
+                                } to='/createEvents'>Create Events</NavLink></li>
+                                <li className='font-bold'><NavLink className={({ isActive }) =>
+                                    isActive ? "text-blue-700" : ""
+                                } to={`/myEvents/${user?.email}`}>Manage Events</NavLink></li>
+                                <li className='font-bold'><NavLink className={({ isActive }) =>
+                                    isActive ? "text-blue-700" : ""
+                                } to='/joined'>Joined Events</NavLink></li>
 
                             </ul>
                         </details>
@@ -75,7 +95,7 @@ const Navbar = () => {
                     user
                         ?
                         <Link to='/logIn'>
-                            <button onClick={handleSignOut}>SignOut</button>
+                            <button className='btn btn-outline' onClick={handleSignOut}>SignOut</button>
                         </Link>
 
                         :

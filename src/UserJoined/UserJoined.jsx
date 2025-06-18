@@ -12,10 +12,10 @@ const UserJoined = () => {
             headers: {
                 authorization: `Bearer ${token}`
             }
-            
+
         })
             .then(res => {
-                console.log(res?.data)
+                // console.log(res?.data)
                 setUserJoined(res?.data)
             }).catch(error => {
                 console.log(error)
@@ -25,13 +25,13 @@ const UserJoined = () => {
 
     return (
         <div>
-       
+
 
             <table className="table">
                 {/* head */}
                 <thead>
                     <tr>
-                       <th className='hidden md:block'>SL</th>
+                        <th className='hidden md:block'>SL</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Location</th>
@@ -41,10 +41,10 @@ const UserJoined = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        userJoin.map((join, index) => <tr>
+                        userJoin.map((join, index) => <tr key={join._id}>
                             <th className='hidden md:block'>
                                 <label>
-                                    {index+1}
+                                    {index + 1}
                                 </label>
                             </th>
                             <td>
@@ -58,20 +58,20 @@ const UserJoined = () => {
                                     </div>
                                     <div>
                                         <div className="font-bold">{join?.title}</div>
-                                       
+
                                     </div>
                                 </div>
                             </td>
                             <td>
                                 {join?.eventType}
-                              
-                              
+
+
                             </td>
                             <td>{join?.location}</td>
                             <th className='hidden md:block'>
-                               
-                               <button className="btn btn-ghost btn-xs">{join?.eventDate}</button>
-                               
+
+                                <button className="btn btn-ghost btn-xs">{join?.eventDate}</button>
+
                             </th>
                         </tr>)
                     }

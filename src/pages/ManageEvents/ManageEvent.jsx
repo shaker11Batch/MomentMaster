@@ -64,7 +64,7 @@ const ManageEvent = ({ event, myEvents, setMyEvents }) => {
                 </div>
                 <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} fill='blue' /></span>{eventType}</p>
                 <div className="card-actions justify-end">
-                    
+
                     <Link to={`/update/${_id}`}>
                         <button className="btn btn-outline rounded-full"><Pencil fill='blue' /></button>
                     </Link>

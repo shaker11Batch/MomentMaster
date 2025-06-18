@@ -56,7 +56,7 @@ const CreateEvents = () => {
                     <input type="text" name='organizerEmail' defaultValue={user?.email} readOnly className=" input w-full   " placeholder="organizerEmail" />
 
                 </fieldset>
-              
+
                 <div className="">
                     <legend className=" ">Event Type</legend>
                     <select defaultValue="Job Category" name='eventType' className="select ">
@@ -87,7 +87,7 @@ const CreateEvents = () => {
                     <textarea name='description' className=" textarea w-full " placeholder="Description"></textarea>
 
                 </fieldset>
-              
+
 
                 <input type="submit" className='btn btn-primary w-full col-span-2' value="Create Event" />
 
