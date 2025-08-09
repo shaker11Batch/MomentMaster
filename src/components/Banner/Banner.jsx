@@ -5,7 +5,7 @@ const Banner = () => {
 
     return (
         <div
-            className="hero md:min-h-[600px] rounded-xl shadow-orange-50"
+            className="hero md:min-h-[400px] rounded-xl shadow-orange-50 "
             style={{
                 backgroundImage:
                     `url(${banner})`,
@@ -16,9 +16,9 @@ const Banner = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Hello Learners</h1>
                     <p className="mb-5">
-                    An all-in-one platform to create, manage, and join campus events. Simplifies organizing, boosts student engagement, tracks participation, and fosters a vibrant college community through seamless digital interaction.
+                        An all-in-one platform to create, manage, and join campus events. Simplifies organizing, boosts student engagement, tracks participation, and fosters a vibrant college community through seamless digital interaction.
                     </p>
-                  
+
                 </div>
             </div>
 

@@ -17,7 +17,8 @@ const Futures = () => {
     }, [])
     return (
         <>
-            <h3 className="text-5xl font-bold text-center text-blue-500 my-16">Event Gallery</h3>
+            <h4 className="text-center text-2xl font-semibold text-red-600">Event</h4>
+            <h3 className="text-4xl text-center font-bold mb-12 ">POPULAR EVENT</h3>
 
             <div
                 className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8'>

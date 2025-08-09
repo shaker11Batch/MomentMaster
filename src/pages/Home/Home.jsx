@@ -9,11 +9,12 @@ const Home = () => {
     return (
         <div className=' min-h-screen'>
             <Banner />
-            <Services />
-            <ComingEvent />
-           
-            <Futures />
-            <NewsLatter />
+            <div className='max-w-7xl mx-auto'>
+                <Services />
+                <ComingEvent />
+                <Futures />
+                <NewsLatter />
+            </div>
 
         </div>
     );
