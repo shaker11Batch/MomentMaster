@@ -30,7 +30,11 @@ const Navbar = () => {
                         <li className='font-bold'><NavLink className={({ isActive }) =>
                             isActive ? "text-blue-700" : ""
                         } to='/upComingEvents'>Upcoming Events</NavLink></li>
-                        <li>
+                        
+                        <li className='font-bold'><NavLink className={({ isActive }) =>
+                        isActive ? "text-blue-700" : ""
+                    } to='/add-announcement'>Add Announcement</NavLink></li>
+                    <li>
                             <details className='z-10'>
                                 <summary className='font-bold'>DashBoard</summary>
                                 <ul className="p-2">
@@ -59,6 +63,10 @@ const Navbar = () => {
                     <li className='font-bold'><NavLink className={({ isActive }) =>
                         isActive ? "text-blue-700" : ""
                     } to='/upComingEvents'>Upcoming Events</NavLink></li>
+                    
+                    <li className='font-bold'><NavLink className={({ isActive }) =>
+                        isActive ? "text-blue-700" : ""
+                    } to='/add-announcement'>Add Announcement</NavLink></li>
                     <li>
                         <details className='z-10'>
                             <summary className='font-bold'>DashBoard</summary>

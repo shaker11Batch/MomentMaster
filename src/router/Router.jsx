@@ -12,7 +12,8 @@ import Update from "../pages/Update/Update";
 import PrivateRoutes from "../auth/PrivateRoutes";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import UserJoined from "../UserJoined/UserJoined";
-import { Suspense } from "react";
+import CreateAnnouncement from "../admin/CreateAnnouncement";
+import Announcement from "../admin/Announcement";
 
 
 
@@ -56,6 +57,15 @@ export const router = createBrowserRouter([
             {
                 path: '/joined',
                 element: <PrivateRoutes><UserJoined /></PrivateRoutes>
+            },
+            {
+                path: '/add-announcement',
+                element: <CreateAnnouncement></CreateAnnouncement>
+            },
+            {
+                path: '/announcement',
+                loader: () =>axios.get(`http://localhost:3000/announcement`),
+                element: <Announcement/>
             },
             {
                 path: '/logIn',
