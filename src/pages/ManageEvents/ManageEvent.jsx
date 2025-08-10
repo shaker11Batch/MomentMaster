@@ -25,7 +25,7 @@ const ManageEvent = ({ event, myEvents, setMyEvents }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                axios.delete(`https://event-management-server-pied.vercel.app/myEvents-delete/${_id}`)
+                axios.delete(`http://localhost:3000/myEvents-delete/${_id}`)
                     .then(res => {
                         console.log(res)
                         if (res?.data?.deletedCount) {

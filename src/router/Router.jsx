@@ -12,6 +12,7 @@ import Update from "../pages/Update/Update";
 import PrivateRoutes from "../auth/PrivateRoutes";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import UserJoined from "../UserJoined/UserJoined";
+import { Suspense } from "react";
 
 
 
@@ -32,17 +33,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                loader: ({ params }) => axios.get(`https://event-management-server-pied.vercel.app/update/${params.id}`),
+                loader: ({ params }) => axios.get(`http://localhost:3000/update/${params.id}`),
                 element: <PrivateRoutes><Update /></PrivateRoutes>
             },
             {
                 path: '/upComingEvents',
-                loader: () => axios.get('https://event-management-server-pied.vercel.app/upComingEvents'),
+                hydrateFallbackElement: <p className="text-center font-bold text-2xl my-12">Loading......</p>,
+                loader: () => axios.get(`http://localhost:3000/upComingEvents`),
                 element: <UpComingEvents />
+
             },
             {
                 path: '/upComingEvents/:id',
-                loader: ({ params }) => axios.get(`https://event-management-server-pied.vercel.app/upcomingEvent/${params.id}`),
+                loader: ({ params }) => axios.get(`http://localhost:3000/upcomingEvent/${params.id}`),
                 element: <UpcomingEventDetails />
             },
             {

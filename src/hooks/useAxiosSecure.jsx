@@ -5,8 +5,8 @@ import { AuthContext } from '../Context/AuthContext';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'https://event-management-server-pied.vercel.app/'
-    // baseURL: 'https://event-management-server-pied.vercel.app/'
+    baseURL: 'http://localhost:3000/'
+    // baseURL: 'http://localhost:3000/'
 })
 
 const useAxiosSecure = () => {

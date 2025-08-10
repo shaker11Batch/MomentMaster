@@ -1,40 +1,41 @@
 import React from 'react';
-import { BiSolidCategoryAlt } from 'react-icons/bi';
-import { CiLocationOn } from 'react-icons/ci';
-import { IoMdTimer } from 'react-icons/io';
-import { Link } from 'react-router';
+import { MapPin, Calendar, Clock, Users, Mic, CalendarDays, Tag } from "lucide-react";
+import { Link, useNavigate } from 'react-router';
 
 const UpCommingEvent = ({ event }) => {
-    // console.log(event)
-    const { thumbnail, title, description, _id, eventType, location, eventDate, organizerEmail } = event;
-    return (
-        <div className="card bg-base-100  shadow-sm">
-            <figure>
-                <img
-                    src={thumbnail}
-                    alt="Shoes" />
-            </figure>
-            <div className="card-body">
-                <div className='flex flex-col md:flex-row gap-4'>
-                    <h2 className="font-bold text-xl text-blue-500">
-                        {title}
-                    </h2>
-                    <div className="btn btn-outline  btn-info"><span className='gap-4'><BiSolidCategoryAlt size={24} /></span><span className=''>{eventType}</span></div>
-                </div>
-                <p>{description}</p>
-                <div className='flex flex-col md:flex-row md:gap-16'>
-                    <p className=' flex items-center gap-4 my-2 mt-2 '><span className='gap-4'><CiLocationOn size={24} fill='blue'/></span>{location}</p>
-                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} fill='blue' /></span>{eventDate}</p>
-                </div>
-                <div className="card-actions justify-end">
-                    <Link to={`/upComingEvents/${_id}`}>
-                        <btn className="btn btn-outline btn-primary">View</btn>
-                    </Link>
+  // console.log(event)
+  const { thumbnail, title, description, _id, eventType, location, eventDate, organizerEmail, runningTime, speakerDesignation, speakerName, seat, } = event;
+  const navigate = useNavigate()
+  const handleDetail = () => {
+    navigate(`${_id}`)
+  }
 
-                </div>
-            </div>
+  return (
+    <div className="card w-full md:w-96 bg-base-100 shadow-xl">
+      <figure>
+        <img src={thumbnail} alt={title} className="w-full h-48 object-cover" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <Tag className="w-4 h-4" />
+          <span>{eventType}</span>
         </div>
-    );
+
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <CalendarDays className="w-4 h-4" />
+          <span>{event.eventDate}</span>
+        </div>
+
+        <div className="card-actions justify-end mt-4">
+          <Link to={`/upComingEvents/${_id}`}>
+            <button className="btn btn-primary w-full">Book Now</button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default UpCommingEvent;

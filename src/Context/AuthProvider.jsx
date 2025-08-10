@@ -31,17 +31,17 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             // jwt Request when user login 
-            if (currentUser?.email) {
-                axios.post('https://event-management-server-pied.vercel.app/jwt', {
-                    email: currentUser?.email
-                })
-                    .then(res => {
-                        // console.log(res.data.token)
-                        localStorage.setItem('token', res?.data?.token)
-                    })
-            } else {
-                localStorage.removeItem('token')
-            }
+            // if (currentUser?.email) {
+            //     axios.post('http://localhost:3000/jwt', {
+            //         email: currentUser?.email
+            //     })
+            //         .then(res => {
+            //             // console.log(res.data.token)
+            //             localStorage.setItem('token', res?.data?.token)
+            //         })
+            // } else {
+            //     localStorage.removeItem('token')
+            // }
 
             setLoading(false)
         })

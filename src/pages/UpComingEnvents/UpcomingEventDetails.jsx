@@ -1,22 +1,23 @@
 import React, { use, useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { CiLocationOn } from 'react-icons/ci';
-import { IoMdTimer } from "react-icons/io";
-import { BiSolidCategoryAlt } from "react-icons/bi";
+
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { MapPin, Calendar, Clock, Users, Mic, CalendarDays } from "lucide-react";
 
 const UpcomingEventDetails = () => {
     const { user } = use(AuthContext)
 
     const details = useLoaderData()
-    const { thumbnail, title, description, _id, eventType, location, eventDate } = details?.data;
-
+    const{ thumbnail, title, description, _id, eventType, location, eventDate, organizerEmail, runningTime, speakerDesignation, speakerName, seat, }= details?.data;
+ 
+    const navigate = useNavigate()
 
     const handleJoinedEvents = () => {
         console.log('joined events')
+       
         // if (user?.email === organizerEmail) {
         const joinInfo = {
             organizerEmail: user?.email,
@@ -37,6 +38,7 @@ const UpcomingEventDetails = () => {
         axiosSecure.post(`/joined-events/${_id}`, joinInfo)
             .then(res => {
                 console.log(res)
+                navigate('/upComingEvents')
                 if (res?.data?.acknowledged) {
                     Swal.fire({
                         position: "top-end",
@@ -53,26 +55,43 @@ const UpcomingEventDetails = () => {
 
 
     return (
-        <div className='flex flex-col md:flex-row my-16 px-4 md:px-40 gap-16 w-full mx-auto items-center'>
-            <div className=''>
-                <img src={thumbnail} alt="" className='md:max-w-sm w-[300px] rounded-4xl' />
-            </div>
-            <div className='md:max-w-1/2'>
-                <h3 className="text-4xl font-bold">{title}</h3>
-                <p className="">
-                    {description}
-                </p>
-                <p className="my-2">
-                    {description}
-                </p>
-                <div className='flex gap-16'>
-                    <p className=' flex items-center gap-4 my-4 '><span className='gap-4'><CiLocationOn size={24} /></span>{location}</p>
-                    <p className=' flex items-center gap-4  '><span className='gap-4'><IoMdTimer size={24} /></span>{eventDate}</p>
-                </div>
-                <p className=' flex items-center gap-4 mb-4 '><span className='gap-4'><BiSolidCategoryAlt size={24} /></span>{eventType}</p>
-                <button className="btn btn-outline btn-success w-full" onClick={handleJoinedEvents}>Join Event</button>
-            </div>
+       
+        <div className="max-w-7xl mx-auto my-8 bg-base-100 shadow-lg rounded-xl overflow-hidden flex flex-col md:flex-row">
+      
+      
+        <div className="p-6 flex flex-col justify-between w-full md:w-2/3">
+          <h2 className="text-2xl font-bold mb-3">{title}</h2>
+  
+          <div className="space-y-2 text-sm">
+            <p className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" /> {location}
+            </p>
+            <p className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-primary" /> {eventDate}
+            </p>
+            <p className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-primary" /> {runningTime}
+            </p>
+            <p className="flex items-center gap-2">
+              <Mic className="w-4 h-4 text-primary" /> {speakerName} ({speakerDesignation})
+            </p>
+            <p className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-primary" /> Seats: {seat}
+            </p>
+          </div>
+  
+          <p className="mt-4 text-gray-600 line-clamp-3">{description}</p>
+          <button className="btn btn-outline btn-success w-full my-4 mt-4" onClick={handleJoinedEvents}>Join Event</button>
         </div>
+  
+        <div className="w-full md:w-1/3">
+          <img
+            src={thumbnail}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
     );
 };
 

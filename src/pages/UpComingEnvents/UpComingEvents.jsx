@@ -3,14 +3,14 @@ import { useLoaderData } from 'react-router';
 import UpCommingEvent from './UpCommingEvent';
 
 
-const UpComingEvents = () => {
-    const events = useLoaderData()
+const UpComingEvents =  () => {
+    const events =  useLoaderData()
     console.log(events)
     return (
         <div>
-            <h2>Upcoming Events is here</h2>
+            <h2 className='text-center'>Upcoming Events is here</h2>
           
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 px-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 px-8 max-w-7xl mx-auto'>
                 {
                     events?.data?.map(event => <UpCommingEvent
                         key={event._id}

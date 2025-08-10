@@ -8,7 +8,7 @@ const UserJoined = () => {
     const [userJoin, setUserJoined] = useState([])
     useEffect(() => {
         const token = user?.accessToken
-        axios.get(`https://event-management-server-pied.vercel.app/myJoinedEvent/${user?.email}`, {
+        axios.get(`http://localhost:3000/myJoinedEvent/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${token}`
             }
